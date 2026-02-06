@@ -1,51 +1,79 @@
-🔐 Security Monitoring Agent
+# 🛡️ Security Monitoring Agent
 
-📖 Project Overview
+A lightweight **Security Monitoring Agent** built in Python to simulate **real-world SOC (Security Operations Center) log analysis**.
+The system ingests structured logs, analyzes activity patterns, and generates alerts for suspicious behavior.
 
-The Security Monitoring Agent is a modular, production-oriented cybersecurity system designed to monitor system and application logs, detect suspicious activity, and generate security alerts in near real time.
 
-The agent combines behavior-based anomaly detection with threat intelligence correlation, while optimizing performance and cost through log compression and batching. It is inspired by real-world SOC (Security Operations Center) and SIEM architectures.
 
-Problem Statement
+## 📌 Overview
 
-Modern systems generate massive volumes of logs, making it difficult and expensive to identify security threats in real time. Traditional tools often suffer from high costs, excessive false positives, and limited flexibility.
+Security teams rely on continuous log monitoring to detect threats such as brute-force attacks, compromised accounts, and malicious IP activity.
+This project demonstrates how security logs can be processed and analyzed using rule-based detection techniques in a modular and extensible design.
 
-This project addresses these challenges by providing:
+## ✨ Features
 
-Lightweight log ingestion
-Cost-efficient processing
-Explainable detection logic
-Extensible security architecture
-🏗️ System Architecture
-The system follows a pipeline-based architecture, where logs pass through multiple security layers:
+* Log ingestion from CSV files
+* Log normalization for consistent processing
+* Brute-force login detection
+* Threat intelligence matching (known malicious IPs)
+* Critical account monitoring (admin/root)
+* High-activity anomaly detection
+* Configurable detection thresholds
+* Clear alert generation and logging
 
-Log Source
-   ↓
-Log Collector
-   ↓
-Compression & Batching
-   ↓
-Anomaly Detection
-   ↓
-Threat Intelligence Correlation
-   ↓
-Alert Manager
-Key Design Highlights:
-Modular components for easy extension
-Compression to reduce processing and storage costs
-Behavioral anomaly detection for unknown threats
-Threat intelligence matching for known malicious indicators
-⚙️ Core Features
-Log ingestion from files (API/stream ready design)
-Log normalization and compression
-Statistical anomaly detection
-Threat intelligence correlation (IOC-based)
-Configurable detection thresholds
-Centralized alert generation
-Production-ready, extensible codebase
-🌍 Real-World Use Cases
-Security Operations Centers (SOC)
-SIEM and log monitoring pipelines
-Cloud infrastructure security monitoring
-Web application attack detection
-Blue-team security research and labs
+
+## 🏗️ Architecture
+
+
+Log Data → Normalization → Detection Engine → Alerts
+
+
+Detection Engine Modules:
+
+* Brute-force Detection
+* Threat Intelligence Matching
+* Critical Account Monitoring
+* Activity Volume Anomaly Detection
+
+
+
+## 🧰 Tech Stack
+
+* **Language:** Python 3.10+
+* **Library:** pandas
+* **Logging:** Python logging module
+* **Data Format:** CSV
+
+---
+## 🚀 How to Run
+
+```bash
+pip install -r requirements.txt
+python src/security_monitoring_agent.py
+```
+
+---
+
+## 🧪 Sample Output
+
+```
+BRUTE FORCE ALERT: 192.168.1.100 targeting user admin
+THREAT INTEL ALERT: Known malicious IP detected -> 10.0.0.99
+CRITICAL ACCOUNT ALERT: Failed activity on root from 203.0.113.45
+ANOMALY ALERT: High event volume from IP 10.0.0.99
+```
+
+---
+
+## 🎯 Use Cases
+
+* SOC analyst practice
+* Cybersecurity portfolio project
+* Interview and academic demonstrations
+* Foundation for advanced security monitoring systems
+
+
+
+## 📂 Dataset
+
+The dataset simulates authentication, file access, and API activity, including both normal and malicious behavior, designed to resemble enterprise security logs.
